@@ -197,7 +197,7 @@ for grp in cdrom floppy audio dip video plugdev netdev bluetooth lpadmin scanner
     chroot /target usermod -aG $grp ebaqr || true
 done
 #Creating a 6-character password
-pwgen -By -1 6 1>>/target/etc/qrpsw
+passwdgenerator>>/target/etc/qrpsw
 chmod 640 /target/etc/qrpsw
 psw=$(cat /target/etc/qrpsw)
 

@@ -1,6 +1,8 @@
 #!/bin/bash
 #### install osk
-
+apt --fix-broken install -y
+apt-get install -f -y # eksik bağımlılıkları tamamlaması için.
+apt install dkms -y
 apt --fix-broken install -y
 apt-get install -f -y # eksik bağımlılıkları tamamlaması için.
 

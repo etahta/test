@@ -1,7 +1,7 @@
 #!/bin/bash
 chroot chroot apt-get update
 chroot chroot apt-get install vlc evince gnome-terminal gnome-screenshot  gvfs-backends --no-install-recommends -y
-chroot chroot apt-get install bluetooth bluez blueman -y 
+#chroot chroot apt-get install bluetooth bluez blueman -y 
 #chroot chroot apt-get install chromium chromium-l10n  -y
 chroot chroot apt-get install zip unzip sudo ark p7zip rar unrar file-roller --no-install-recommends -y
 #chroot chroot apt-get install lsb-release systemsettings okular konsole -y
@@ -19,7 +19,8 @@ chroot chroot apt-get install network-manager git make wget --no-install-recomme
 #chroot chroot apt-get install xterm -y
 
 # mpv 
-chroot chroot apt-get install gtk3-nocsd e2fsprogs dosfstools qml-module-qt-labs-platform wpasupplicant ntfs-3g --no-install-recommends -y
+#chroot chroot apt-get install gtk3-nocsd e2fsprogs dosfstools qml-module-qt-labs-platform wpasupplicant ntfs-3g --no-install-recommends -y
+chroot chroot apt-get install gtk3-nocsd e2fsprogs dosfstools wpasupplicant ntfs-3g --no-install-recommends -y
 
 #### e-ag
 #chroot chroot apt install e-ag-client e-ag-x11client libnss3-tools -y

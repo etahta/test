@@ -7,13 +7,12 @@
 
 chroot chroot apt-get install \
       firmware-amd-graphics \
-      firmware-intel-sound zd1211-firmware firmware-sof-signed  firmware-siano firmware-myricom firmware-netxen firmware-qlogic firmware-cavium firmware-atheros \
-      bluez-firmware \
-      firmware-bnx2 \
-      firmware-bnx2x \
-      firmware-brcm80211 \
+      firmware-intel-sound \
+      firmware-sof-signed \
+      zd1211-firmware \
+      firmware-netxen \
+      firmware-qlogic \    
       firmware-iwlwifi \
-      firmware-libertas \
       firmware-linux \
       firmware-linux-free \
       firmware-linux-nonfree \
@@ -23,6 +22,16 @@ chroot chroot apt-get install \
       firmware-samsung \
       firmware-ti-connectivity -y
 
+     # firmware-siano \
+     # bluez-firmware \     
+     # firmware-myricom \
+
+     # firmware-cavium \
+     # firmware-bnx2 \
+     # firmware-bnx2x \
+     # firmware-brcm80211 \
+     #firmware-libertas \
+     #firmware-atheros \
 chroot chroot apt --fix-broken install -y
 chroot chroot apt-get install -f -y # eksik bağımlılıkları tamamlaması için.
 

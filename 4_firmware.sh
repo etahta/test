@@ -19,6 +19,7 @@ chroot chroot apt-get install \
       firmware-misc-nonfree \
       firmware-ralink \
       firmware-realtek \
+      firmware-atheros \
       firmware-samsung \
       firmware-ti-connectivity -y
 

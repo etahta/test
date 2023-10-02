@@ -6,7 +6,6 @@
       #firmware-intel-sound zd1211-firmware firmware-sof-signed  firmware-siano firmware-myricom firmware-netxen firmware-qlogic firmware-cavium firmware-atheros \
 
 chroot chroot apt-get install \
-firmware-amd-graphics \
 firmware-intel-sound \
 firmware-sof-signed \
 zd1211-firmware \
@@ -19,18 +18,19 @@ firmware-linux-nonfree \
 firmware-misc-nonfree \
 firmware-ralink \
 firmware-realtek \
-firmware-atheros \
 firmware-samsung \
 firmware-ti-connectivity -y
-
-     # firmware-siano \
-     # bluez-firmware \     
-     # firmware-myricom \
-     # firmware-cavium \
-     # firmware-bnx2 \
-     # firmware-bnx2x \
-     # firmware-brcm80211 \
-     #firmware-libertas \
+	
+      	#firmware-atheros \
+     	# firmware-amd-graphics \
+     	# firmware-siano \
+     	# bluez-firmware \     
+     	# firmware-myricom \
+	# firmware-cavium \
+	# firmware-bnx2 \
+	# firmware-bnx2x \
+	# firmware-brcm80211 \
+	#firmware-libertas \
 
 chroot chroot apt --fix-broken install -y
 chroot chroot apt-get install -f -y # eksik bağımlılıkları tamamlaması için.

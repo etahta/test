@@ -36,6 +36,18 @@ hdisk=""
          echo "flahs disk yok"
             hdisk="sda"
         fi
+        
+        lstnvme=""
+	lstnvme=$(lsblk -o NAME|grep nvme|head -1)
+	if [ "${lstnvme}" == "" ];then
+	hdisk="sda"
+	echo "nvme disk yok $hdisk"
+	else
+	hdisk="${lstnvme}p"
+	echo "nvme disk var $hdisk"
+	fi
+     
+        
           echo "Sabit Diskiniz $hdisk Sistem Kurulumu Buraya Yapilacaktir..."
 
 ###########################end choose from multiple hard drives#############################

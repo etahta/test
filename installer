@@ -166,14 +166,6 @@ chroot /target apt-get purge live-boot* live-config* live-tools --yes || true
 chroot /target apt-get autoremove --yes || true
 chroot /target update-initramfs -u -k all  || fallback
 
-#etapadmin
-chroot /target useradd -m -s /bin/bash $username || fallback
-#mkdir /target/home/$username || true
-chroot /target chown $username /home/$username
-# user setup
-for grp in cdrom floppy sudo audio dip video plugdev netdev bluetooth lpadmin scanner ; do
-    chroot /target usermod -aG $grp $username || true
-done
 
 #ogretmen
 chroot /target useradd -m -s /bin/bash ogretmen || fallback
@@ -194,10 +186,22 @@ touch /target/home/ebaqr/.config/np
 for grp in cdrom floppy audio dip video plugdev netdev bluetooth lpadmin scanner ; do
     chroot /target usermod -aG $grp ebaqr || true
 done
+
+#etapadmin
+chroot /target useradd -m -s /bin/bash $username || fallback
+#mkdir /target/home/$username || true
+chroot /target chown $username /home/$username
+# user setup
+for grp in cdrom floppy sudo audio dip video plugdev netdev bluetooth lpadmin scanner ; do
+    chroot /target usermod -aG $grp $username || true
+done
+
 #Creating a 6-character password
 passwdgenerator>>/target/etc/qrpsw
 chmod 640 /target/etc/qrpsw
 psw=$(cat /target/etc/qrpsw)
+
+
 
 echo -e "1\n1\n" | chroot /target passwd $username
 #echo -e "$password\n$password\n" | chroot /target passwd root

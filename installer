@@ -152,12 +152,17 @@ echo -e "\033[32m-------Faz3 Ayarlari Yapiliyor..---------\033[0m"
 	#chroot /target touch /etc/skel/faz3
 	chroot /target cp /etc/fazconfig/cinnamon-monitors.xml /etc/skel/.config/cinnamon-monitors.xml
 	chroot /target cp -f /etc/fazconfig/config.ini /usr/share/pardus/pardus-lightdm-greeter/data/config.ini
-	#chroot /target rm -rf /etc/skel/.config/pulse
-	#chroot /target cp -rf /etc/fazconfig/pulse /etc/skel/.config/
-	chroot /target mkdir  /etc/skel/.config/autostart
-	chroot /target cp  /etc/fazconfig/selectsound /etc/skel/.config/autostart/selectsound
-	chroot /target chmod 555 /etc/skel/.config/autostart/selectsound
-	chroot /target dpkg -i /etc/fazconfig/eta-pulse-config_0.4.0_amd64.deb
+	
+	chroot /target rm -rf /etc/skel/.config/pulse
+	chroot /target cp -rf /etc/fazconfig/pulse /etc/skel/.config/pulse
+	
+	chroot /target rm -rf /etc/skel/.config/dconf
+	chroot /target cp -rf /etc/fazconfig/dconf /etc/skel/.config/dconf
+	
+	#chroot /target mkdir  /etc/skel/.config/autostart
+	#chroot /target cp  /etc/fazconfig/selectsound /etc/skel/.config/autostart/selectsound
+	#chroot /target chmod 555 /etc/skel/.config/autostart/selectsound
+	#chroot /target dpkg -i /etc/fazconfig/eta-pulse-config_0.4.0_amd64.deb
 	echo -e "\033[32m-------Dosya Kopyalandi..---------\033[0m"
 fi
 echo -e "\033[31m-------Faz Ayar Kurulumu Tamamlandi---------\033[0m"

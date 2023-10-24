@@ -7,7 +7,8 @@ chroot chroot apt-get install -f -y # eksik bağımlılıkları tamamlaması iç
 echo "kurulacak***************************************************************"
 chroot chroot apt install git wget gir1.2-gtk-3.0 console-setup python3-gi python3-pip usbutils tzdata python3-dev python3-pynput -y
 chroot chroot apt install onboard -y
-chroot chroot apt install gir1.2-atspi-2.0  mousetweaks -y
+chroot chroot apt install gir1.2-atspi-2.0 -y
+#mousetweaks -y
 #onboard-data
 chroot chroot apt --fix-broken install -y
 chroot chroot apt-get install -f -y # eksik bağımlılıkları tamamlaması için.

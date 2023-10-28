@@ -28,10 +28,17 @@ echo '    linux /boot/vmlinuz boot=live quiet init=/usr/bin/installersd --' >> l
 echo '    initrd /boot/initrd.img' >> liveiso/boot/grub/grub.cfg
 echo '}' >> liveiso/boot/grub/grub.cfg
 
+
 echo 'menuentry "Yukle (nvme Diskli Faz-3`ler) GNU/Linux 64-bit" --class liveiso {' >> liveiso/boot/grub/grub.cfg
 echo '    linux /boot/vmlinuz boot=live quiet init=/usr/bin/installernvme --' >> liveiso/boot/grub/grub.cfg
 echo '    initrd /boot/initrd.img' >> liveiso/boot/grub/grub.cfg
 echo '}' >> liveiso/boot/grub/grub.cfg
+
+echo 'menuentry "Yukle (sda Diskli Faz-1-2-3`ler UEFI SIFIRLANIR) GNU/Linux 64-bit" --class liveiso {' >> liveiso/boot/grub/grub.cfg
+echo '    linux /boot/vmlinuz boot=live quiet init=/usr/bin/installersduefi --' >> liveiso/boot/grub/grub.cfg
+echo '    initrd /boot/initrd.img' >> liveiso/boot/grub/grub.cfg
+echo '}' >> liveiso/boot/grub/grub.cfg
+
 
 #echo 'menuentry "Installer Graphic Screen GNU/Linux 64-bit" --class liveiso {' >> liveiso/boot/grub/grub.cfg
 #echo '    linux /boot/vmlinuz boot=live username=liveinstall quiet --' >> liveiso/boot/grub/grub.cfg

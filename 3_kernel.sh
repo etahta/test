@@ -13,6 +13,8 @@ chroot chroot apt-get install linux-headers-amd64 -y
 #chroot chroot apt-get install linux-headers-$(uname -r) -y
 cp installersd chroot/usr/bin/installersd
 cp installernvme chroot/usr/bin/installernvme
+cp installersduefi chroot/usr/bin/installersduefi
+
 cp passwdgenerator chroot/usr/bin/passwdgenerator
 cp faz chroot/usr/bin/faz
 chmod a+s chroot/usr/bin/faz

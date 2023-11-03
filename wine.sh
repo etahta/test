@@ -16,7 +16,7 @@ apt update
 dpkg --add-architecture i386
 apt install software-properties-common -y
 apt-key add /tmp/winehq.key
-echo 'deb https://dl.winehq.org/wine-builds/debian/ testing main'> /etc/apt/sources.list.d/winehq.list
+echo 'deb https://dl.winehq.org/wine-builds/debian/ bullseye main'> /etc/apt/sources.list.d/winehq.list
 apt update
 apt install --install-recommends winehq-devel -y
 rm -rf /tmp/winehq.key

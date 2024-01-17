@@ -50,7 +50,7 @@ echo 'deb https://deb.debian.org/debian testing main contrib non-free non-free-f
 echo "APT::Sandbox::User root;" > chroot/etc/apt/apt.conf.d/99sandboxroot
 for i in dev dev/pts proc sys; do mount -o bind /$i chroot/$i; done
 chroot chroot apt-get install gnupg -y
-
+chroot chroot apt install ca-certificates -y
 #### grub packages
 #chroot chroot apt-get dist-upgrade -y
 chroot chroot apt-get install grub-pc-bin grub-efi-ia32-bin grub-efi -y

@@ -33,11 +33,11 @@ mkdir chroot  # || true
 #debootstrap --arch=amd64 --no-merged-usr sid chroot https://deb.debian.org/debian
 #echo 'deb https://deb.debian.org/debian sid main contrib non-free' > chroot/etc/apt/sources.list
 
-debootstrap --arch=amd64 --no-merged-usr testing chroot https://deb.debian.org/debian
-echo 'deb https://deb.debian.org/debian testing main contrib non-free non-free-firmware' > chroot/etc/apt/sources.list
+#debootstrap --arch=amd64 --no-merged-usr testing chroot https://deb.debian.org/debian
+#echo 'deb https://deb.debian.org/debian testing main contrib non-free non-free-firmware' > chroot/etc/apt/sources.list
 
-#debootstrap --arch=amd64 --no-merged-usr stable chroot https://deb.debian.org/debian
-#echo 'deb https://deb.debian.org/debian stable main contrib non-free non-free-firmware' > chroot/etc/apt/sources.list
+debootstrap --arch=amd64 --no-merged-usr stable chroot https://deb.debian.org/debian
+echo 'deb https://deb.debian.org/debian stable main contrib non-free non-free-firmware' > chroot/etc/apt/sources.list
 
 #debootstrap --arch=amd64 --no-merged-usr yirmibir chroot https://depo.pardus.org.tr/pardus
 #echo 'deb https://depo.pardus.org.tr/pardus yirmibir main contrib non-free' > chroot/etc/apt/sources.list
@@ -50,7 +50,7 @@ echo 'deb https://deb.debian.org/debian testing main contrib non-free non-free-f
 echo "APT::Sandbox::User root;" > chroot/etc/apt/apt.conf.d/99sandboxroot
 for i in dev dev/pts proc sys; do mount -o bind /$i chroot/$i; done
 chroot chroot apt-get install gnupg -y
-chroot chroot apt install ca-certificates -y
+
 #### grub packages
 #chroot chroot apt-get dist-upgrade -y
 chroot chroot apt-get install grub-pc-bin grub-efi-ia32-bin grub-efi -y

@@ -167,9 +167,6 @@ echo -e "\033[32m-------Faz3 Ayarlari Yapiliyor..---------\033[0m"
 fi
 echo -e "\033[31m-------Faz Ayar Kurulumu Tamamlandi---------\033[0m"
 
-chroot /target apt-get purge live-boot* live-config* live-tools --yes || true
-chroot /target apt-get autoremove --yes || true
-chroot /target update-initramfs -u -k all  || fallback
 
 
 #ogretmen
@@ -256,12 +253,6 @@ chroot /target echo "KEYMAP=trq" > /target/etc/vconsole.conf
 #dil ve klavye ayarlarını sisteme yansıtılıyor
 chroot /target dpkg-reconfigure --frontend noninteractive keyboard-configuration
 
-if [[ -d /sys/firmware/efi ]] ; then
-    chroot /target mount -t efivarfs efivarfs /sys/firmware/efi/efivars || true
-    chroot /target grub-install /dev/${DISK} --target=x86_64-efi || fallback
-else
-    chroot /target grub-install /dev/${DISK} --target=i386-pc || fallback
-fi
 echo "GRUB_DEFAULT=0" > /target/etc/default/grub
 echo "GRUB_TIMEOUT=0" >> /target/etc/default/grub
 echo "GRUB_HIDDEN_TIMEOUT=0" >> /target/etc/default/grub
@@ -273,14 +264,27 @@ echo "GRUB_BACKGROUND='/usr/share/images/ilkresim.jpg'" >> /target/etc/default/g
 chroot /target plymouth-set-default-theme -R lines
 #chroot /target gsettings set org.gnome.desktop.background picture-uri file:///target/usr/share/images/duvar.svg || true
 
-chroot /target update-grub  || fallback
-[[ -f /target/install ]] && rm -f /target/install || true
-
 #******hosts file localhost added
 bash -c "echo '127.1.1.0 etahta' >> /target/etc/hosts"
 bash -c "echo 'etahta' > /target/etc/hostname"
 echo 'deb https://depo.pardus.org.tr/pardus yirmiuc main contrib non-free' >> /target/etc/apt/sources.list
 rm -rf /target/usr/share/applications/sifredegistir.desktop
+
+##  update-initramfs  
+chroot /target apt-get purge live-boot* live-config* live-tools --yes || true
+chroot /target apt-get autoremove --yes || true
+chroot /target update-initramfs -u -k all  || fallback
+
+##chroot /target update-grub  || fallback
+if [[ -d /sys/firmware/efi ]] ; then
+    chroot /target mount -t efivarfs efivarfs /sys/firmware/efi/efivars || true
+    chroot /target grub-install /dev/${DISK} --target=x86_64-efi || fallback
+else
+    chroot /target grub-install /dev/${DISK} --target=i386-pc || fallback
+fi
+##remove install script
+[[ -f /target/install ]] && rm -f /target/install || true
+
 
 umount -f -R /target/* || true
 sync  || fallback

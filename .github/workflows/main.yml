@@ -22,6 +22,7 @@ jobs:
                     cd /root
                     #pwd
                     bash createIso.sh
+                    #mv *.iso /output/etahta-$(date +%d)-$(date +%m)-$(date +%y).iso
                     mv *.iso /output/etahta.iso
           - uses: "marvinpinto/action-automatic-releases@latest"
             with:

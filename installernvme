@@ -84,7 +84,7 @@ if [[ "$partitioning" == "true" ]] ; then
         mount /dev/${DISKX}1 /target/boot/efi  || fallback
     else
         yes | parted /dev/${DISK} mktable msdos || fallback
-        yes | parted /dev/${DISK} mkpart primary ext4 1 "100%" || fallback
+        yes | parted /dev/${DISK} mkpart primary fat32 1 "100%" || fallback
         sync && sleep 1
         yes | mkfs.ext4 /dev/${DISKX}1  || fallback
         yes | parted /dev/${DISK} set 1 boot on || fallback

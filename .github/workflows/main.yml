@@ -21,15 +21,9 @@ jobs:
                 run: |
                     cd /root
                     #pwd
-                    #bash createIso.sh
+                    bash createIso.sh
                     #mv *.iso /output/etahta-$(date +%d)-$(date +%m)-$(date +%y).iso
-                    
-                    #mv *.iso /output/etahta.iso
-                    echo "merhaba bayram">denemem.txt
-                    ln -s denemem.txt bayram
-                    mv denemem.txt /output/denemem.txt
-                    mv bayram /output/bayram
-                    
+                    mv *.iso /output/etahta.iso
           - uses: "marvinpinto/action-automatic-releases@latest"
             with:
                 repo_token: "${{ secrets.GITHUB_TOKEN }}"

@@ -4,6 +4,7 @@ apt --fix-broken install -y
 apt-get install -f -y # eksik bağımlılıkları tamamlaması için.
 #apt --purge remove wine* -y
 apt autoremove -y
+apt update
 # paket yönetim paketi add-apt-repository bu paketten gelir
 apt install software-properties-common -y
 # şifreleme ve dijital imzalama aracıdır.
@@ -33,7 +34,6 @@ apt update
 #apt install winehq-staging=8.21~bookworm-1 wine-staging=8.21~bookworm-1 wine-staging-amd64=8.21~bookworm-1 wine-staging-i386=8.21~bookworm-1
 #apt install winehq-stable=9.0.0.0~bookworm-1 wine-stable=9.0.0.0~bookworm-1 wine-stable-amd64=9.0.0.0~bookworm-1 wine-stable-i386=9.0.0.0~bookworm-1
 apt install winehq-stable=9.0.0.0~bookworm-1 wine-stable=9.0.0.0~bookworm-1 wine-stable-amd64=9.0.0.0~bookworm-1 wine-stable-i386=9.0.0.0~bookworm-1 -y
-#apt install --install-recommends libwine
 
 #Windows uygulamalarının (DLL dosyaları vb.) otomatik olarak indirip kurabilir
 apt install --no-install-recommends winetricks -y

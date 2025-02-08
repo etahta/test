@@ -32,8 +32,10 @@ apt update
 #apt install winehq-staging=7.12~bookworm-1 wine-staging=7.12~bookworm-1 wine-staging-amd64=7.12~bookworm-1 wine-staging-i386=7.12~bookworm-1
 #apt install winehq-staging=8.21~bookworm-1 wine-staging=8.21~bookworm-1 wine-staging-amd64=8.21~bookworm-1 wine-staging-i386=8.21~bookworm-1
 #apt install winehq-stable=9.0.0.0~bookworm-1 wine-stable=9.0.0.0~bookworm-1 wine-stable-amd64=9.0.0.0~bookworm-1 wine-stable-i386=9.0.0.0~bookworm-1
-apt install winehq-stable=9.0.0.0~bookworm-1 wine-stable=9.0.0.0~bookworm-1 wine-stable-amd64=9.0.0.0~bookworm-1 -y
+#apt install winehq-stable=9.0.0.0~bookworm-1 wine-stable=9.0.0.0~bookworm-1 wine-stable-amd64=9.0.0.0~bookworm-1 -y
 # wine-stable-i386=9.0.0.0~bookworm-1 -y
+apt install --install-recommends libwine
+apt install --install-recommends winehq-stable=9.0.0.0~bookworm-1 wine-stable=9.0.0.0~bookworm-1 wine-stable-amd64=9.0.0.0~bookworm-1 -y
 
 #Windows uygulamalarının (DLL dosyaları vb.) otomatik olarak indirip kurabilir
 apt install --no-install-recommends winetricks -y

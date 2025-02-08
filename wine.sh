@@ -39,14 +39,14 @@ apt install winehq-stable=9.0.0.0~bookworm-1 wine-stable=9.0.0.0~bookworm-1 wine
 apt install --no-install-recommends winetricks -y
 # .NET uygulamalarını Linux üzerinde wine ile çalıştırmk için gerekli
 apt install mono-complete -y
-
+apt install libgtk3-nocsd0:i386 -y
 
 
 #apt install --install-recommends winehq-stable -y
 #apt --purge remove wine32:i386 libwine libwine:i386 fonts-wine -y
 #apt update
 #dpkg-reconfigure wine-stable-amd64 wine-stable wine-stable-i386 -y
-#apt install libgtk3-nocsd0:i386 -y
+
 
 
 

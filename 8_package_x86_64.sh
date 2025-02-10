@@ -30,7 +30,7 @@ chroot chroot apt-get install network-manager network-manager-gnome pulseaudio  
 chroot chroot apt-get install git make wget --no-install-recommends -y
 #chroot chroot apt-get install xterm -y
 #bluetooth dosyaları
-chroot chroot apt-get install bluetooth bluez blueman bluez-tools rfkill pulseaudio-module-bluetooth --no-install-recommends -y 
+##chroot chroot apt-get install bluetooth bluez blueman bluez-tools rfkill pulseaudio-module-bluetooth --no-install-recommends -y 
 
 # mpv 
 #chroot chroot apt-get install gtk3-nocsd e2fsprogs dosfstools qml-module-qt-labs-platform wpasupplicant ntfs-3g --no-install-recommends -y

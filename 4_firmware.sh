@@ -12,6 +12,7 @@ zd1211-firmware \
 firmware-netxen \
 firmware-qlogic \
 firmware-iwlwifi \
+firmware-ipw2x00 \
 firmware-linux \
 firmware-linux-free \
 firmware-linux-nonfree \
